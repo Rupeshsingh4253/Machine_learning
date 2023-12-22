@@ -1,0 +1,87 @@
+**Q1: What is the difference between a t-test and a z-test? Provide an example scenario where you would use each type of test.**
+
+- **Difference:**
+  - **Z-Test:** Used when the population standard deviation is known or the sample size is large.
+  - **T-Test:** Used when the population standard deviation is unknown, and the sample size is small.
+
+- **Example Scenario:**
+  - **Z-Test:** Testing if the mean height of a population is equal to a known value when the population standard deviation is known.
+  - **T-Test:** Testing if the mean exam scores of two groups are different when the population standard deviation is unknown, and sample sizes are small.
+
+**Q2: Differentiate between one-tailed and two-tailed tests.**
+
+- **One-Tailed Test:** Tests the hypothesis in only one direction (greater than or less than).
+- **Two-Tailed Test:** Tests the hypothesis in both directions (greater than and less than).
+
+**Q3: Explain the concept of Type 1 and Type 2 errors in hypothesis testing. Provide an example scenario for each type of error.**
+
+- **Type 1 Error (False Positive):** Rejecting a true null hypothesis.
+  - Example: Concluding a new drug is effective when it has no effect.
+
+- **Type 2 Error (False Negative):** Failing to reject a false null hypothesis.
+  - Example: Concluding a new drug has no effect when it is actually effective.
+
+**Q4: Explain Bayes's theorem with an example.**
+
+- **Bayes's Theorem:** A formula that calculates the probability of an event based on prior knowledge of the conditions that might be related to the event.
+
+  \[ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \]
+
+  - Example: A medical test for a disease. \(A\) is the event of having the disease, and \(B\) is testing positive for the disease.
+
+**Q5: What is a confidence interval? How to calculate the confidence interval, explain with an example.**
+
+- **Confidence Interval:** A range of values that is likely to contain the true value of a population parameter.
+
+- **Calculation:** 
+  \[ \text{Confidence Interval} = \text{Point Estimate} \pm \text{Margin of Error} \]
+  \[ \text{Margin of Error} = \text{Critical Value} \times \text{Standard Error} \]
+
+- **Example:** Calculating a 95% confidence interval for the population mean.
+  \[ \bar{x} = 50, \; s = 5, \; n = 30 \]
+  \[ \text{Critical Value (z)} \approx 1.96 \]
+  \[ \text{Standard Error} = \frac{s}{\sqrt{n}} \]
+  \[ \text{Margin of Error} \approx 1.96 \times \frac{5}{\sqrt{30}} \]
+  \[ \text{Confidence Interval} = 50 \pm \text{Margin of Error} \]
+
+**Q6. Use Bayes' Theorem to calculate the probability of an event occurring given prior knowledge of the event's probability and new evidence. Provide a sample problem and solution.**
+
+- **Problem:**
+  - A factory produces light bulbs, and 2% of them are defective. A quality control test correctly identifies 90% of the defective bulbs. If a bulb is randomly selected and found to be defective, what is the probability that it came from this factory?
+
+- **Solution:**
+  - \( P(\text{Defective}) = 0.02 \)
+  - \( P(\text{Identified as Defective | Defective}) = 0.9 \)
+  - \( P(\text{Identified as Defective | Not Defective}) = 0.1 \)
+
+  \[ P(\text{Factory | Defective}) = \frac{P(\text{Defective | Factory}) \cdot P(\text{Factory})}{P(\text{Defective})} \]
+
+  Substituting the values:
+  \[ P(\text{Factory | Defective}) = \frac{0.9 \cdot 0.02}{0.02} = 0.9 \]
+
+**Q7. Calculate the 95% confidence interval for a sample of data with a mean of 50 and a standard deviation of 5. Interpret the results.**
+
+- **Calculation:**
+  - \( \text{Margin of Error} = \text{Critical Value} \times \frac{\text{Standard Deviation}}{\sqrt{\text{Sample Size}}} \)
+  - \( \text{Confidence Interval} = \text{Sample Mean} \pm \text{Margin of Error} \)
+
+- **Interpretation:**
+  - If this process were repeated many times, we would expect the true population mean to fall within this interval about 95% of the time.
+
+**Q8. What is the margin of error in a confidence interval? How does sample size affect the margin of error? Provide an example of a scenario where a larger sample size would result in a smaller margin of error.**
+
+- **Margin of Error:** The range within which the true population parameter is likely to fall.
+
+- **Effect of Sample Size:** Larger sample sizes result in smaller margins of error because the standard error decreases.
+
+- **Example Scenario:**
+  - In a political survey, a sample of 1000 voters is likely to have a smaller margin of error compared to a sample of 100 voters, assuming other conditions are constant.
+
+**Q9. Calculate the z-score for a data point with a value of 75, a population mean of 70, and a population standard deviation of 5. Interpret the results.**
+
+- **Calculation:**
+  \[ Z = \frac{\text{X} - \text{Mean}}{\text{Standard Deviation}} \]
+  \[ Z = \frac{75 - 70}{5} = 1 \]
+
+- **Interpretation:**
+  - A z-score of 1 means

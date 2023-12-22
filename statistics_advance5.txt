@@ -1,0 +1,209 @@
+**Q1. Calculate the 95% confidence interval for a sample of data with a mean of 50 and a standard deviation of 5 using Python. Interpret the results.**
+
+```python
+import scipy.stats as stats
+
+sample_mean = 50
+sample_std = 5
+sample_size = 30
+confidence_level = 0.95
+
+margin_of_error = stats.norm.ppf((1 + confidence_level) / 2) * (sample_std / (sample_size ** 0.5))
+confidence_interval = (sample_mean - margin_of_error, sample_mean + margin_of_error)
+
+print(f"95% Confidence Interval: {confidence_interval}")
+```
+
+**Interpretation:**
+- We are 95% confident that the true population mean falls within the interval (lower bound, upper bound).
+
+**Q2. Conduct a chi-square goodness of fit test to determine if the distribution of colors of M&Ms in a bag matches the expected distribution of 20% blue, 20% orange, 20% green, 10% yellow, 10% red, and 20% brown. Use Python to perform the test with a significance level of 0.05.**
+
+```python
+import scipy.stats as stats
+
+observed_counts = [25, 15, 30, 20, 10, 50]
+expected_counts = [0.2 * sum(observed_counts)] * 6
+
+chi2_stat, p_value = stats.chisquare(observed_counts, expected_counts)
+
+print(f"Chi-square Statistic: {chi2_stat}")
+print(f"P-value: {p_value}")
+
+# Check if the null hypothesis is rejected
+alpha = 0.05
+if p_value < alpha:
+    print("Reject the null hypothesis.")
+else:
+    print("Fail to reject the null hypothesis.")
+```
+
+**Q3. Use Python to calculate the chi-square statistic and p-value for a contingency table with the following data:**
+
+```python
+import scipy.stats as stats
+
+observed_data = [[20, 15], [10, 25], [15, 20]]
+chi2_stat, p_value, _, _ = stats.chi2_contingency(observed_data)
+
+print(f"Chi-square Statistic: {chi2_stat}")
+print(f"P-value: {p_value}")
+
+# Check if the null hypothesis is rejected
+alpha = 0.05
+if p_value < alpha:
+    print("Reject the null hypothesis.")
+else:
+    print("Fail to reject the null hypothesis.")
+```
+
+**Interpretation:**
+- The chi-square statistic and p-value are used to determine if there is a significant association between the two categorical variables.
+
+**Q4. A study of the prevalence of smoking in a population of 500 individuals found that 60 individuals smoked. Use Python to calculate the 95% confidence interval for the true proportion of individuals in the population who smoke.**
+
+```python
+import statsmodels.api as sm
+
+sample_size_smoke = 500
+observed_smoke = 60
+
+conf_interval = sm.stats.proportion_confint(observed_smoke, sample_size_smoke, alpha=0.05, method='normal')
+
+print(f"95% Confidence Interval: {conf_interval}")
+```
+
+**Q5. Calculate the 90% confidence interval for a sample of data with a mean of 75 and a standard deviation of 12 using Python. Interpret the results.**
+
+```python
+sample_mean_90 = 75
+sample_std_90 = 12
+sample_size_90 = 40
+confidence_level_90 = 0.90
+
+margin_of_error_90 = stats.norm.ppf((1 + confidence_level_90) / 2) * (sample_std_90 / (sample_size_90 ** 0.5))
+confidence_interval_90 = (sample_mean_90 - margin_of_error_90, sample_mean_90 + margin_of_error_90)
+
+print(f"90% Confidence Interval: {confidence_interval_90}")
+```
+
+**Interpretation:**
+- We are 90% confident that the true population mean falls within the interval (lower bound, upper bound).
+
+**Q6. Use Python to plot the chi-square distribution with 10 degrees of freedom. Label the axes and shade the area corresponding to a chi-square statistic of 15.**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+degrees_of_freedom_chi2 = 10
+chi2_values = np.linspace(0, 25, 1000)
+chi2_distribution = stats.chi2.pdf(chi2_values, df=degrees_of_freedom_chi2)
+
+plt.plot(chi2_values, chi2_distribution, label=f'Chi-square Distribution (df={degrees_of_freedom_chi2})')
+plt.fill_between(chi2_values[chi2_values >= 15], 0, stats.chi2.pdf(chi2_values[chi2_values >= 15], df=degrees_of_freedom_chi2), color='red', alpha=0.3)
+plt.title('Chi-square Distribution')
+plt.xlabel('Chi-square Statistic')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.show()
+'''
+**Q7. A random sample of 1000 people was asked if they preferred Coke or Pepsi. Of the sample, 520 preferred Coke. Calculate a 99% confidence interval for the true proportion of people in the population who prefer Coke.**
+
+```python
+import statsmodels.api as sm
+
+sample_size_coke = 1000
+observed_coke = 520
+
+conf_interval_coke = sm.stats.proportion_confint(observed_coke, sample_size_coke, alpha=0.01, method='normal')
+
+print(f"99% Confidence Interval for Coke Preference: {conf_interval_coke}")
+```
+
+**Q8. A researcher hypothesizes that a coin is biased towards tails. They flip the coin 100 times and observe 45 tails. Conduct a chi-square goodness of fit test to determine if the observed frequencies match the expected frequencies of a fair coin. Use a significance level of 0.05.**
+
+```python
+import scipy.stats as stats
+
+expected_frequency_tails = 0.5 * 100
+observed_frequency_tails = 45
+
+observed_frequencies = [observed_frequency_tails, 100 - observed_frequency_tails]
+expected_frequencies = [expected_frequency_tails, 100 - expected_frequency_tails]
+
+chi2_stat_coin, p_value_coin = stats.chisquare(observed_frequencies, expected_frequencies)
+
+print(f"Chi-square Statistic for Coin Bias: {chi2_stat_coin}")
+print(f"P-value for Coin Bias: {p_value_coin}")
+
+# Check if the null hypothesis is rejected
+alpha_coin = 0.05
+if p_value_coin < alpha_coin:
+    print("Reject the null hypothesis.")
+else:
+    print("Fail to reject the null hypothesis.")
+```
+
+**Q9. A study was conducted to determine if there is an association between smoking status (smoker or non-smoker) and lung cancer diagnosis (yes or no). Conduct a chi-square test for independence to determine if there is a significant association between smoking status and lung cancer diagnosis.**
+
+```python
+import scipy.stats as stats
+
+observed_data_lung_cancer = [[20, 15], [10, 25], [15, 20], [60, 140], [30, 170]]
+chi2_stat_lung_cancer, p_value_lung_cancer, _, _ = stats.chi2_contingency(observed_data_lung_cancer)
+
+print(f"Chi-square Statistic for Lung Cancer: {chi2_stat_lung_cancer}")
+print(f"P-value for Lung Cancer: {p_value_lung_cancer}")
+
+# Check if the null hypothesis is rejected
+alpha_lung_cancer = 0.05
+if p_value_lung_cancer < alpha_lung_cancer:
+    print("Reject the null hypothesis. There is a significant association.")
+else:
+    print("Fail to reject the null hypothesis. There is no significant association.")
+```
+
+**Q10. A study was conducted to determine if the proportion of people who prefer milk chocolate, dark chocolate, or white chocolate is different in the U.S. versus the U.K. Conduct a chi-square test for independence to determine if there is a significant association between chocolate preference and country of origin.**
+
+```python
+import scipy.stats as stats
+
+observed_data_chocolate = [[150, 200, 150], [120, 180, 200]]
+chi2_stat_chocolate, p_value_chocolate, _, _ = stats.chi2_contingency(observed_data_chocolate)
+
+print(f"Chi-square Statistic for Chocolate Preference: {chi2_stat_chocolate}")
+print(f"P-value for Chocolate Preference: {p_value_chocolate}")
+
+# Check if the null hypothesis is rejected
+alpha_chocolate = 0.01
+if p_value_chocolate < alpha_chocolate:
+    print("Reject the null hypothesis. There is a significant association.")
+else:
+    print("Fail to reject the null hypothesis. There is no significant association.")
+```
+
+**Q11. A random sample of 30 people was selected from a population with an unknown mean and standard deviation. Conduct a hypothesis test to determine if the population mean is significantly different from 70. Use a significance level of 0.05.**
+
+```python
+import scipy.stats as stats
+
+sample_mean_unknown = 72
+sample_std_unknown = 10
+sample_size_unknown = 30
+population_mean_hypothesized = 70
+
+t_stat_unknown, p_value_unknown = stats.ttest_1samp([sample_mean_unknown]*sample_size_unknown, population_mean_hypothesized)
+
+print(f"T-statistic for Unknown Population: {t_stat_unknown}")
+print(f"P-value for Unknown Population: {p_value_unknown}")
+
+# Check if the null hypothesis is rejected
+alpha_unknown = 0.05
+if p_value_unknown < alpha_unknown:
+    print("Reject the null hypothesis. The population mean is significantly different from 70.")
+else:
+    print("Fail to reject the null hypothesis. There is no significant difference.")
+```
+
+These Python scripts demonstrate how to perform the requested statistical analyses.
