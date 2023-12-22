@@ -1,0 +1,136 @@
+**Q1: What is Estimation Statistics? Explain point estimate and interval estimate.**
+
+- **Estimation Statistics:** Estimation is the process of using sample data to make inferences about unknown population parameters. It involves providing estimates, or best guesses, of the values of population parameters.
+
+- **Point Estimate:** A single value used to estimate the unknown population parameter. For example, the sample mean (\(\bar{x}\)) is a point estimate of the population mean (\(\mu\)).
+
+- **Interval Estimate:** A range of values within which the population parameter is likely to fall. It includes a margin of error. For example, a confidence interval is an interval estimate.
+
+**Q2. Write a Python function to estimate the population mean using a sample mean and standard deviation.**
+
+```python
+import scipy.stats as stats
+import math
+
+def confidence_interval(sample_mean, sample_std, sample_size, confidence_level):
+    margin_of_error = stats.t.ppf((1 + confidence_level) / 2, df=sample_size - 1) * (sample_std / math.sqrt(sample_size))
+    lower_bound = sample_mean - margin_of_error
+    upper_bound = sample_mean + margin_of_error
+    return lower_bound, upper_bound
+
+# Example usage:
+sample_mean = 500
+sample_std = 50
+sample_size = 50
+confidence_level = 0.95
+
+interval = confidence_interval(sample_mean, sample_std, sample_size, confidence_level)
+print(f"95% Confidence Interval: {interval}")
+```
+
+**Q3: What is Hypothesis testing? Why is it used? State the importance of Hypothesis testing.**
+
+- **Hypothesis Testing:** Hypothesis testing is a statistical method used to make inferences about a population parameter based on a sample of data. It involves formulating a hypothesis, collecting and analyzing data, and drawing conclusions about the population.
+
+- **Importance:** Hypothesis testing is crucial in scientific research and decision-making. It allows researchers to test whether their assumptions or beliefs about a population parameter are supported by the sample data. It helps make informed decisions and draw valid conclusions.
+
+**Q4: Create a hypothesis that states whether the average weight of male college students is greater than the average weight of female college students.**
+
+- **Hypothesis:**
+  - Null Hypothesis (\(H_0\)): The average weight of male college students is equal to or less than the average weight of female college students.
+  - Alternative Hypothesis (\(H_1\)): The average weight of male college students is greater than the average weight of female college students.
+
+**Q5: Write a Python script to conduct a hypothesis test on the difference between two population means, given a sample from each population.**
+
+```python
+import scipy.stats as stats
+
+def two_sample_t_test(sample1, sample2):
+    stat, p_value = stats.ttest_ind(sample1, sample2)
+    return stat, p_value
+
+# Example usage:
+sample_male = [72, 68, 75, 70, 78]
+sample_female = [65, 62, 68, 70, 72]
+
+statistic, p_value = two_sample_t_test(sample_male, sample_female)
+print(f"Test Statistic: {statistic}")
+print(f"P-value: {p_value}")
+```
+
+**Q6: What is a null and alternative hypothesis? Give some examples.**
+
+- **Null Hypothesis (\(H_0\)):** A statement that there is no significant difference or effect, often a default assumption. It is what researchers aim to test against.
+
+- **Alternative Hypothesis (\(H_1\)):** A statement that contradicts the null hypothesis, indicating a significant difference or effect.
+
+  **Examples:**
+  1. \(H_0\): The mean exam scores are equal. \(H_1\): The mean exam scores are not equal.
+  2. \(H_0\): The new drug has no effect. \(H_1\): The new drug has a significant effect.
+
+**Q7: Write down the steps involved in hypothesis testing.**
+
+1. **Formulate Hypotheses:** Clearly state the null and alternative hypotheses.
+2. **Choose Significance Level (\(\alpha\)):** Select the level of significance to determine the cutoff for rejecting the null hypothesis.
+3. **Collect Data:** Obtain a sample and collect relevant data.
+4. **Conduct Test:** Use a statistical test to analyze the data and calculate the test statistic.
+5. **Make Decision:** Compare the p-value to \(\alpha\) and decide whether to reject the null hypothesis.
+6. **Draw Conclusion:** Based on the decision, draw a conclusion about the population parameter.
+
+**Q8. Define p-value and explain its significance in hypothesis testing.**
+
+- **P-value:** The probability of observing a test statistic as extreme as, or more extreme than, the one calculated from the sample data, assuming the null hypothesis is true.
+
+- **Significance:** A small p-value (typically less than the chosen significance level, \(\alpha\)) suggests that the observed data is unlikely under the assumption of the null hypothesis. Therefore, a small p-value leads to the rejection of the null hypothesis in favor of the alternative hypothesis.
+
+**Q9. Generate a Student's t-distribution plot using Python's matplotlib library, with the degrees of freedom parameter set to 10.**
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+
+degrees_of_freedom = 10
+x = np.linspace(-4, 4, 1000)
+y = stats.t.pdf(x, df=degrees_of_freedom)
+
+plt.plot(x, y, label=f't-Distribution (df={degrees_of_freedom})')
+plt.title('Student\'s t-Distribution')
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.show()
+```
+
+**Q10. Write a Python program to calculate the two-sample t-test for independent samples, given two random samples of equal size and a null hypothesis that the population means are equal.**
+
+```python
+import scipy.stats as stats
+
+def two_sample_t_test(sample1, sample2):
+    stat, p_value = stats.ttest_ind(sample1, sample2)
+    return stat, p_value
+
+# Example usage:
+sample1 = [25, 30, 35, 40, 45]
+sample2 = [22, 28, 32, 38, 42]
+
+statistic, p_value = two_sample_t_test(sample1, sample2)
+print(f"Test Statistic: {statistic}")
+print(f"P-value: {p_value}")
+```
+
+**Q11: What is Student’s t distribution? When to use the t-Distribution.**
+
+- **Student's t-Distribution:** A probability distribution used in hypothesis testing when the sample size is small or when the population standard deviation is unknown.
+
+- **When to Use:** Use the t-distribution when:
+  - The sample size is small.
+  - The population standard deviation is unknown.
+  - The data is approximately normally distributed.
+
+**Q12: What is t-statistic? State the formula for t-statistic.**
+
+- **t-Statistic:** A measure used in hypothesis testing to determine if there is a significant difference between the means of two groups.
+
+- **Formula:** \(t = \frac{\bar{x}_1 - \bar{x
