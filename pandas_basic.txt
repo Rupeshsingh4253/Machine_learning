@@ -1,0 +1,57 @@
+import pandas as pd
+data=[4, 8, 15, 16, 23, 42]
+df=pd.Series(data)
+df
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+my_series = pd.Series(my_list)
+print(my_series)
+
+data={ "Name":["Alice","Bob","Claire"],
+        "age":[25,30,27],
+         "Gender":["f","m","f"]
+     }
+pd.DataFrame(data)
+
+"A DataFrame is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns)"
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'City': ['New York', 'San Francisco', 'Los Angeles']}
+
+df = pd.DataFrame(data)
+print(df)
+print("\n")
+"A Series is a one-dimensional labeled array capable of holding any data type. It can be seen as a single column of a DataFrame."
+import pandas as pd
+my_list = [10, 20, 30, 40, 50]
+my_series = pd.Series(my_list, name='MySeries')
+print(my_series)
+
+"head(n) returns the first n rows of the DataFrame."
+"tail(n) returns the last n rows of the DataFrame."
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'City': ['New York', 'San Francisco', 'Los Angeles']}
+
+df = pd.DataFrame(data)
+print(df.head(2))  
+print(df.tail(1))  
+print("\n")
+df.info()
+
+"A pandas DataFrame is also mutable. You can modify the contents of individual cells, add or remove columns, and perform various operations to change its structure or values."
+data = {'A': [1, 2, 3], 'B': [4, 5, 6]}
+df = pd.DataFrame(data)
+df.at[0, 'A'] = 99
+df
+
+
+name_series = pd.Series(['Alice', 'Bob', 'Charlie'], name='Name')
+age_series = pd.Series([25, 30, 35], name='Age')
+city_series = pd.Series(['New York', 'San Francisco', 'Los Angeles'], name='City')
+data = {'Name': name_series, 'Age': age_series, 'City': city_series}
+df = pd.DataFrame(data)
+df
+
