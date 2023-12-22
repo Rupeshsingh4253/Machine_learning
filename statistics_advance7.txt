@@ -1,0 +1,243 @@
+**Q1. Write a Python function that takes in two arrays of data and calculates the F-value for a variance ratio test. The function should return the F-value and the corresponding p-value for the test.**
+
+```python
+import scipy.stats as stats
+
+def calculate_f_value(data1, data2):
+    f_value, p_value = stats.f_oneway(data1, data2)
+    return f_value, p_value
+
+# Example usage:
+data1 = [23, 25, 28, 30, 32]
+data2 = [18, 20, 22, 24, 26]
+f_value, p_value = calculate_f_value(data1, data2)
+
+print(f"F-value: {f_value}, p-value: {p_value}")
+```
+
+**Q2. Given a significance level of 0.05 and the degrees of freedom for the numerator and denominator of an F-distribution, write a Python function that returns the critical F-value for a two-tailed test.**
+
+```python
+def get_critical_f_value(alpha, df_num, df_denom):
+    critical_f_value = stats.f.ppf(1 - alpha / 2, df_num, df_denom)
+    return critical_f_value
+
+# Example usage:
+alpha = 0.05
+df_num = 3
+df_denom = 20
+critical_f_value = get_critical_f_value(alpha, df_num, df_denom)
+
+print(f"Critical F-value: {critical_f_value}")
+```
+
+**Q3. Write a Python program that generates random samples from two normal distributions with known variances and uses an F-test to determine if the variances are equal. The program should output the F-value, degrees of freedom, and p-value for the test.**
+
+```python
+import numpy as np
+
+def f_test_for_equal_variances(variance1, variance2, sample_size1, sample_size2):
+    data1 = np.random.normal(0, np.sqrt(variance1), sample_size1)
+    data2 = np.random.normal(0, np.sqrt(variance2), sample_size2)
+
+    f_value, p_value = stats.variance_ratio(data1, data2)
+    df_num = sample_size1 - 1
+    df_denom = sample_size2 - 1
+
+    return f_value, df_num, df_denom, p_value
+
+# Example usage:
+variance1 = 10
+variance2 = 15
+sample_size1 = 12
+sample_size2 = 12
+
+f_value, df_num, df_denom, p_value = f_test_for_equal_variances(variance1, variance2, sample_size1, sample_size2)
+
+print(f"F-value: {f_value}, Degrees of Freedom (numerator): {df_num}, Degrees of Freedom (denominator): {df_denom}, p-value: {p_value}")
+```
+
+The other questions will be addressed in subsequent responses.
+
+**Q4. The variances of two populations are known to be 10 and 15. A sample of 12 observations is taken from each population. Conduct an F-test at the 5% significance level to determine if the variances are significantly different.**
+
+```python
+import scipy.stats as stats
+
+def f_test_for_equal_variances_known_populations(variance1, variance2, sample_size1, sample_size2, alpha=0.05):
+    # F-test for equal variances
+    f_value = variance1 / variance2
+    df_num = sample_size1 - 1
+    df_denom = sample_size2 - 1
+    p_value = 2 * min(stats.f.cdf(f_value, df_num, df_denom), 1 - stats.f.cdf(f_value, df_num, df_denom))
+
+    # Check significance
+    is_significant = p_value < alpha
+
+    return f_value, df_num, df_denom, p_value, is_significant
+
+# Given data
+variance1 = 10
+variance2 = 15
+sample_size1 = 12
+sample_size2 = 12
+alpha = 0.05
+
+# Perform F-test
+result = f_test_for_equal_variances_known_populations(variance1, variance2, sample_size1, sample_size2, alpha)
+
+# Display result
+f_value, df_num, df_denom, p_value, is_significant = result
+print(f"F-value: {f_value}, Degrees of Freedom (numerator): {df_num}, Degrees of Freedom (denominator): {df_denom}, p-value: {p_value}, Significant: {is_significant}")
+```
+
+**Q5. A manufacturer claims that the variance of the diameter of a certain product is 0.005. A sample of 25 products is taken, and the sample variance is found to be 0.006. Conduct an F-test at the 1% significance level to determine if the claim is justified.**
+
+```python
+def f_test_for_variance_claim(true_variance, sample_variance, sample_size, alpha=0.01):
+    # F-test for variance claim
+    f_value = sample_variance / true_variance
+    df_num = sample_size - 1
+    df_denom = 1
+    p_value = 2 * min(stats.f.cdf(f_value, df_num, df_denom), 1 - stats.f.cdf(f_value, df_num, df_denom))
+
+    # Check significance
+    is_significant = p_value < alpha
+
+    return f_value, df_num, df_denom, p_value, is_significant
+
+# Given data
+true_variance = 0.005
+sample_variance = 0.006
+sample_size = 25
+alpha = 0.01
+
+# Perform F-test
+result = f_test_for_variance_claim(true_variance, sample_variance, sample_size, alpha)
+
+# Display result
+f_value, df_num, df_denom, p_value, is_significant = result
+print(f"F-value: {f_value}, Degrees of Freedom (numerator): {df_num}, Degrees of Freedom (denominator): {df_denom}, p-value: {p_value}, Significant: {is_significant}")
+```
+
+The other questions will be addressed in subsequent responses.
+
+**Q6. Write a Python function that takes in the degrees of freedom for the numerator and denominator of an F-distribution and calculates the mean and variance of the distribution. The function should return the mean and variance as a tuple.**
+
+```python
+import scipy.stats as stats
+
+def f_distribution_mean_variance(df_num, df_denom):
+    # Calculate mean and variance of F-distribution
+    mean = df_denom / (df_denom - 2)
+    variance = (2 * (df_denom**2) * (df_num + df_denom - 2)) / (df_num * (df_denom - 2)**2 * (df_denom - 4))
+
+    return mean, variance
+
+# Example usage
+df_num = 5
+df_denom = 10
+
+# Calculate mean and variance of F-distribution
+mean, variance = f_distribution_mean_variance(df_num, df_denom)
+
+# Display result
+print(f"Mean: {mean}, Variance: {variance}")
+```
+
+**Q7. A random sample of 10 measurements is taken from a normal population with unknown variance. The sample variance is found to be 25. Another random sample of 15 measurements is taken from another normal population with unknown variance, and the sample variance is found to be 20. Conduct an F-test at the 10% significance level to determine if the variances are significantly different.**
+
+```python
+def f_test_for_unknown_variances(sample_variance1, sample_size1, sample_variance2, sample_size2, alpha=0.10):
+    # F-test for unknown variances
+    f_value = sample_variance1 / sample_variance2
+    df_num = sample_size1 - 1
+    df_denom = sample_size2 - 1
+    p_value = 2 * min(stats.f.cdf(f_value, df_num, df_denom), 1 - stats.f.cdf(f_value, df_num, df_denom))
+
+    # Check significance
+    is_significant = p_value < alpha
+
+    return f_value, df_num, df_denom, p_value, is_significant
+
+# Given data
+sample_variance1 = 25
+sample_size1 = 10
+sample_variance2 = 20
+sample_size2 = 15
+alpha = 0.10
+
+# Perform F-test
+result = f_test_for_unknown_variances(sample_variance1, sample_size1, sample_variance2, sample_size2, alpha)
+
+# Display result
+f_value, df_num, df_denom, p_value, is_significant = result
+print(f"F-value: {f_value}, Degrees of Freedom (numerator): {df_num}, Degrees of Freedom (denominator): {df_denom}, p-value: {p_value}, Significant: {is_significant}")
+```
+
+The other questions will be addressed in subsequent responses.
+**Q8. The following data represent the waiting times in minutes at two different restaurants on a Saturday night: Restaurant A: 24, 25, 28, 23, 22, 20, 27; Restaurant B: 31, 33, 35, 30, 32, 36. Conduct an F-test at the 5% significance level to determine if the variances are significantly different.**
+
+```python
+import numpy as np
+
+# Data
+waiting_times_a = np.array([24, 25, 28, 23, 22, 20, 27])
+waiting_times_b = np.array([31, 33, 35, 30, 32, 36])
+
+# Sample variances
+variance_a = np.var(waiting_times_a, ddof=1)
+variance_b = np.var(waiting_times_b, ddof=1)
+
+# Sample sizes
+n_a = len(waiting_times_a)
+n_b = len(waiting_times_b)
+
+# F-test for variances
+f_statistic = variance_a / variance_b
+df_num = n_a - 1
+df_denom = n_b - 1
+alpha = 0.05
+
+# p-value for two-tailed test
+p_value = 2 * min(stats.f.cdf(f_statistic, df_num, df_denom), 1 - stats.f.cdf(f_statistic, df_num, df_denom))
+
+# Check significance
+is_significant = p_value < alpha
+
+# Display result
+print(f"F-value: {f_statistic}, Degrees of Freedom (numerator): {df_num}, Degrees of Freedom (denominator): {df_denom}, p-value: {p_value}, Significant: {is_significant}")
+```
+
+**Q9. The following data represent the test scores of two groups of students: Group A: 80, 85, 90, 92, 87, 83; Group B: 75, 78, 82, 79, 81, 84. Conduct an F-test at the 1% significance level to determine if the variances are significantly different.**
+
+```python
+# Data
+scores_group_a = np.array([80, 85, 90, 92, 87, 83])
+scores_group_b = np.array([75, 78, 82, 79, 81, 84])
+
+# Sample variances
+variance_group_a = np.var(scores_group_a, ddof=1)
+variance_group_b = np.var(scores_group_b, ddof=1)
+
+# Sample sizes
+n_group_a = len(scores_group_a)
+n_group_b = len(scores_group_b)
+
+# F-test for variances
+f_statistic_group = variance_group_a / variance_group_b
+df_num_group = n_group_a - 1
+df_denom_group = n_group_b - 1
+alpha_group = 0.01
+
+# p-value for two-tailed test
+p_value_group = 2 * min(stats.f.cdf(f_statistic_group, df_num_group, df_denom_group), 1 - stats.f.cdf(f_statistic_group, df_num_group, df_denom_group))
+
+# Check significance
+is_significant_group = p_value_group < alpha_group
+
+# Display result
+print(f"F-value: {f_statistic_group}, Degrees of Freedom (numerator): {df_num_group}, Degrees of Freedom (denominator): {df_denom_group}, p-value: {p_value_group}, Significant: {is_significant_group}")
+```
+
+These code snippets conduct F-tests for variance comparison between two groups.
