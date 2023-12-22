@@ -1,0 +1,80 @@
+**Q1. What are the three measures of central tendency?**
+
+The three measures of central tendency are:
+1. **Mean:** The average of a set of values.
+2. **Median:** The middle value when data is ordered.
+3. **Mode:** The most frequently occurring value.
+
+**Q2. What is the difference between the mean, median, and mode? How are they used to measure the central tendency of a dataset?**
+
+- **Mean:** Calculated by summing all values and dividing by the number of values. It is sensitive to extreme values.
+- **Median:** The middle value when data is ordered. Less sensitive to extreme values than the mean.
+- **Mode:** The most frequently occurring value in the dataset.
+
+These measures are used to provide a central or typical value for a dataset. The choice of measure depends on the characteristics of the data and the purpose of analysis.
+
+**Q3. Measure the three measures of central tendency for the given height data:**
+\[ [178, 177, 176, 177, 178.2, 178, 175, 179, 180, 175, 178.9, 176.2, 177, 172.5, 178, 176.5] \]
+
+- **Mean:** Sum all values and divide by the number of values.
+- **Median:** Arrange data in ascending order and find the middle value.
+- **Mode:** Identify the most frequently occurring value.
+
+**Q4. Find the standard deviation for the given data:**
+\[ [178, 177, 176, 177, 178.2, 178, 175, 179, 180, 175, 178.9, 176.2, 177, 172.5, 178, 176.5] \]
+
+The standard deviation measures the average deviation of each data point from the mean. It quantifies the spread of the data.
+
+**Q5. How are measures of dispersion such as range, variance, and standard deviation used to describe the spread of a dataset? Provide an example.**
+
+- **Range:** The difference between the maximum and minimum values.
+- **Variance:** The average of the squared differences from the mean.
+- **Standard Deviation:** The square root of the variance.
+
+These measures describe how spread out the values in a dataset are. For example, a small standard deviation indicates that data points are close to the mean, while a large standard deviation indicates greater variability.
+
+**Q6. What is a Venn diagram?**
+
+A **Venn diagram** is a graphical representation of the relationships between sets. Circles or ellipses represent sets, and the overlap between them shows the common elements. It is commonly used to illustrate set operations like union, intersection, and complement.
+
+**Q7. For the two given sets A = (2,3,4,5,6,7) & B = (0,2,6,8,10). Find:**
+(i) \(A \cap B\) (intersection)
+(ii) \(A \cup B\) (union)
+
+**Q8. What do you understand about skewness in data?**
+
+**Skewness** measures the asymmetry of a probability distribution. If a distribution is skewed, it means that the data is not symmetrically distributed around the mean.
+
+**Q9. If a data is right skewed then what will be the position of median with respect to mean?**
+
+If the data is right-skewed (positively skewed), the median will be less than the mean. The right tail is longer, and extreme values pull the mean to the right.
+
+**Q10. Explain the difference between covariance and correlation. How are these measures used in statistical analysis?**
+
+- **Covariance:** Measures the degree to which two variables change together. It is not standardized, so its magnitude is dependent on the scale of the variables.
+  
+- **Correlation:** Standardized covariance that ranges from -1 to 1, indicating the strength and direction of the linear relationship between two variables. It is unitless.
+
+Both covariance and correlation are used to assess relationships between variables in statistical analysis. A positive covariance/correlation indicates a positive relationship, while a negative value indicates a negative relationship.
+
+**Q11. What is the formula for calculating the sample mean? Provide an example calculation for a dataset.**
+
+The formula for the sample mean (\(\bar{X}\)) is:
+\[ \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \]
+
+Example: For the dataset \([10, 15, 20, 25, 30]\),
+\[ \bar{X} = \frac{10 + 15 + 20 + 25 + 30}{5} = \frac{100}{5} = 20 \]
+
+**Q12. For a normal distribution data what is the relationship between its measures of central tendency?**
+
+For a normal distribution, the mean, median, and mode are all equal and located at the center of the distribution. The distribution is symmetric, so the mean is at the center of the bell-shaped curve.
+
+**Q13. How is covariance different from correlation?**
+
+- **Covariance:** Measures the degree to which two variables change together. It is not standardized and depends on the scale of the variables.
+  
+- **Correlation:** Standardized covariance that ranges from -1 to 1, indicating the strength and direction of the linear relationship between two variables. It is unitless.
+
+**Q14. How do outliers affect measures of central tendency and dispersion? Provide an example.**
+
+Outliers, extreme values in a dataset, can significantly impact measures of central tendency and dispersion. For example, a single very high value can inflate the mean, making it higher than the typical values. However, the median is less affected because it is not sensitive to extreme values. The range, variance, and standard deviation may also be influenced by outliers, especially if they are far from the other values in the dataset.
