@@ -1,0 +1,74 @@
+**Q1: What are the Probability Mass Function (PMF) and Probability Density Function (PDF)? Explain with an example.**
+
+- **Probability Mass Function (PMF):** PMF is applicable to discrete random variables. It gives the probability that a discrete random variable is exactly equal to some value. Mathematically, for a discrete variable \(X\), the PMF is denoted as \(P(X=x)\), representing the probability that \(X\) takes the value \(x\).
+
+  Example: For a fair six-sided die, the PMF is \(P(X=x) = \frac{1}{6}\) for each \(x\) from 1 to 6.
+
+- **Probability Density Function (PDF):** PDF is applicable to continuous random variables. It gives the probability that a continuous random variable falls within a particular range. The probability is obtained by integrating the PDF over that range. Mathematically, for a continuous variable \(X\), the PDF is denoted as \(f(x)\), and \(P(a \leq X \leq b) = \int_{a}^{b} f(x) \,dx\).
+
+  Example: The PDF of a standard normal distribution is given by the bell-shaped curve described by the formula \(\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\).
+
+**Q2: What is Cumulative Density Function (CDF)? Explain with an example. Why CDF is used?**
+
+- **Cumulative Density Function (CDF):** CDF gives the probability that a random variable takes a value less than or equal to a given value. For a discrete variable, it is the sum of the probabilities up to that value; for a continuous variable, it is the integral of the PDF up to that point.
+
+  Example: For a fair six-sided die, the CDF is \(P(X \leq x) = \frac{x}{6}\) for each \(x\) from 1 to 6.
+
+  **Importance:** CDF is useful in determining the probability of a random variable falling within a specified range. It is also crucial in statistical hypothesis testing.
+
+**Q3: What are some examples of situations where the normal distribution might be used as a model? Explain how the parameters of the normal distribution relate to the shape of the distribution.**
+
+- Examples: Heights of individuals in a population, scores on a standardized test, errors in measurements, etc.
+
+  - **Mean (\(\mu\)):** Represents the center of the distribution.
+  - **Standard Deviation (\(\sigma\)):** Represents the spread or dispersion of the distribution.
+  - **Shape:** The normal distribution is symmetric, and about 68% of the data falls within one standard deviation of the mean, 95% within two standard deviations, and 99.7% within three standard deviations.
+
+**Q4: Explain the importance of Normal Distribution. Give a few real-life examples of Normal Distribution.**
+
+- **Importance:** The normal distribution is essential in statistics because of the Central Limit Theorem, which states that the sum or average of a large number of independent, identically distributed random variables will be approximately normally distributed, regardless of the original distribution.
+
+- **Examples:** 
+  1. IQ scores in a population.
+  2. Heights of a large population.
+  3. Errors in measurements.
+
+**Q5: What is Bernoulli Distribution? Give an Example. What is the difference between Bernoulli Distribution and Binomial Distribution?**
+
+- **Bernoulli Distribution:** A distribution of a random variable that takes only two values (0 or 1), representing success and failure in a single experiment or trial.
+
+  Example: Tossing a coin (success = heads, failure = tails).
+
+- **Difference:** The Bernoulli distribution is a special case of the binomial distribution where there is only one trial (n=1). The binomial distribution models the number of successes in a fixed number of independent Bernoulli trials.
+
+**Q6. Consider a dataset with a mean of 50 and a standard deviation of 10. If we assume that the dataset is normally distributed, what is the probability that a randomly selected observation will be greater than 60? Use the appropriate formula and show your calculations.**
+
+- Using the Z-score formula: \(Z = \frac{(X - \mu)}{\sigma}\)
+  - \(Z = \frac{(60 - 50)}{10} = 1\)
+
+- Look up the Z-score in the standard normal distribution table or use a calculator to find \(P(Z > 1)\). The result is approximately 0.1587.
+
+**Q7: Explain uniform Distribution with an example.**
+
+- **Uniform Distribution:** In a uniform distribution, all values in the range are equally likely to occur.
+
+  Example: Rolling a fair six-sided die. Each number from 1 to 6 has an equal probability of \(\frac{1}{6}\).
+
+**Q8: What is the z score? State the importance of the z score.**
+
+- **Z Score:** The Z score (or standard score) measures how many standard deviations a data point is from the mean of a distribution. It is calculated as \(Z = \frac{(X - \mu)}{\sigma}\), where \(X\) is the data point, \(\mu\) is the mean, and \(\sigma\) is the standard deviation.
+
+- **Importance:** The Z score allows us to compare scores from different distributions, facilitating a standardized way to assess where a particular value stands in relation to the mean. It is commonly used in hypothesis testing and statistical analyses.
+
+**Q9: What is Central Limit Theorem? State the significance of the Central Limit Theorem.**
+
+- **Central Limit Theorem (CLT):** The Central Limit Theorem states that the distribution of the sum or average of a large number of independent, identically distributed random variables approaches a normal distribution, regardless of the original distribution of the variables.
+
+- **Significance:** The CLT is significant because it allows statisticians to make statistical inferences about population parameters using the normal distribution, even when the population distribution is not normal. It justifies the use of statistical methods that assume normality.
+
+**Q10: State the assumptions of the Central Limit Theorem.**
+
+- **Assumptions of CLT:**
+  1. The random variables must be independent.
+  2. The random variables must come from the same distribution (identically distributed).
+  3. The sample size must be sufficiently large. The larger the sample size, the better the approximation to a normal distribution.

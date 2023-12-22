@@ -1,0 +1,146 @@
+**Q1. What is the Probability density function?**
+
+The **Probability Density Function (PDF)** is a statistical function that describes the likelihood of obtaining a particular value in a continuous random variable. For a continuous probability distribution, the probability of any individual outcome is technically zero, and the PDF provides the relative likelihood of different outcomes within a given range.
+
+**Q2. What are the types of Probability distribution?**
+
+There are several types of probability distributions, and some common ones include:
+
+1. **Normal Distribution:** Describes a symmetric bell-shaped curve.
+2. **Binomial Distribution:** Models the number of successes in a fixed number of independent Bernoulli trials.
+3. **Poisson Distribution:** Models the number of events occurring in a fixed interval of time or space.
+4. **Exponential Distribution:** Models the time between events in a Poisson process.
+5. **Uniform Distribution:** All values in the range are equally likely.
+6. **Logistic Distribution:** Similar to the normal distribution but with heavier tails.
+
+**Q3. Write a Python function to calculate the probability density function of a normal distribution with given mean and standard deviation at a given point.**
+
+```python
+import math
+
+def normal_pdf(x, mean, std_dev):
+    """
+    Calculate the probability density function (PDF) of a normal distribution.
+    
+    Parameters:
+    - x: The point at which to calculate the PDF.
+    - mean: The mean of the normal distribution.
+    - std_dev: The standard deviation of the normal distribution.
+    
+    Returns:
+    The PDF value at the given point.
+    """
+    exponent = -((x - mean) ** 2) / (2 * std_dev ** 2)
+    pdf = (1 / (std_dev * math.sqrt(2 * math.pi))) * math.exp(exponent)
+    return pdf
+
+# Example usage:
+mean = 0
+std_dev = 1
+point = 1
+result = normal_pdf(point, mean, std_dev)
+print(f"PDF at x={point}: {result}")
+```
+
+**Q4. What are the properties of Binomial distribution? Give two examples of events where binomial distribution can be applied.**
+
+**Properties of Binomial Distribution:**
+- There are a fixed number of trials (n).
+- Each trial has only two possible outcomes (success or failure).
+- The trials are independent of each other.
+- The probability of success (p) remains constant for each trial.
+
+**Examples of Events:**
+1. Tossing a fair coin multiple times and counting the number of heads.
+2. Conducting a series of medical tests, where each test can result in a positive or negative outcome.
+
+**Q5. Generate a random sample of size 1000 from a binomial distribution with probability of success 0.4 and plot a histogram of the results using matplotlib.**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random sample from a binomial distribution
+sample_size = 1000
+probability_of_success = 0.4
+binomial_sample = np.random.binomial(1, probability_of_success, sample_size)
+
+# Plot a histogram of the results
+plt.hist(binomial_sample, bins=[-0.5, 0.5, 1.5], edgecolor='black')
+plt.title('Binomial Distribution (n=1, p=0.4)')
+plt.xlabel('Outcome')
+plt.ylabel('Frequency')
+plt.xticks([0, 1], ['Failure', 'Success'])
+plt.show()
+```
+
+**Q6. Write a Python function to calculate the cumulative distribution function of a Poisson distribution with given mean at a given point.**
+
+```python
+import math
+
+def poisson_cdf(x, mean):
+    """
+    Calculate the cumulative distribution function (CDF) of a Poisson distribution.
+    
+    Parameters:
+    - x: The point at which to calculate the CDF.
+    - mean: The mean of the Poisson distribution.
+    
+    Returns:
+    The CDF value at the given point.
+    """
+    cdf = sum([(math.exp(-mean) * mean**i) / math.factorial(i) for i in range(int(x) + 1)])
+    return cdf
+
+# Example usage:
+mean_poisson = 2
+point_poisson = 3
+result_poisson = poisson_cdf(point_poisson, mean_poisson)
+print(f"CDF at x={point_poisson}: {result_poisson}")
+```
+
+**Q7. How is Binomial distribution different from Poisson distribution?**
+
+**Binomial Distribution:**
+- Describes the number of successes in a fixed number of independent trials.
+- Each trial has two possible outcomes (success or failure).
+- The trials are conducted with a fixed probability of success.
+
+**Poisson Distribution:**
+- Describes the number of events occurring in a fixed interval of time or space.
+- Assumes that events are rare and independent of each other.
+- The mean rate of occurrence is constant.
+
+**Q8. Generate a random sample of size 1000 from a Poisson distribution with mean 5 and calculate the sample mean and variance.**
+
+```python
+import numpy as np
+
+# Generate a random sample from a Poisson distribution
+sample_size_poisson = 1000
+mean_poisson = 5
+poisson_sample = np.random.poisson(mean_poisson, sample_size_poisson)
+
+# Calculate the sample mean and variance
+sample_mean = np.mean(poisson_sample)
+sample_variance = np.var(poisson_sample)
+
+print(f"Sample Mean: {sample_mean}")
+print(f"Sample Variance: {sample_variance}")
+```
+
+**Q9. How are mean and variance related in Binomial distribution and Poisson distribution?**
+
+**Binomial Distribution:**
+- Mean (\(\mu\)) = \(np\)
+- Variance (\(\sigma^2\)) = \(np(1 - p)\)
+
+**Poisson Distribution:**
+- Mean (\(\mu\)) = Variance (\(\sigma^2\)) = \(\lambda\), where \(\lambda\) is the average rate of occurrence.
+
+In both distributions, the mean is equal to the variance.
+
+**Q10. In normal distribution with respect to mean position, where does the least frequent data appear?**
+
+In a normal distribution, the least frequent data appears in the tails, farthest from the mean. The tails represent the extreme values, and the probability density decreases as you move away from the mean in both directions.
