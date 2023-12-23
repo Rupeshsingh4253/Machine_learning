@@ -1,0 +1,127 @@
+**Q1. What is MongoDB? Explain non-relational databases in short. In which scenarios is it preferred to use MongoDB over SQL databases?**
+
+A1: MongoDB is a popular NoSQL, document-oriented database. In non-relational databases, data is stored in a way that does not require a fixed schema like traditional SQL databases. Instead of using tables with rows and columns, NoSQL databases use various data models, such as documents, key-value pairs, wide-column stores, or graphs.
+
+Scenarios where MongoDB is preferred over SQL databases include:
+
+- **Dynamic Schema:** MongoDB allows flexible and dynamic schema design, making it suitable for applications with evolving and undefined schemas.
+  
+- **Scaling:** MongoDB is horizontally scalable, making it well-suited for handling large amounts of unstructured or semi-structured data across distributed servers.
+
+- **Document-Oriented:** MongoDB's document-oriented model is beneficial for applications dealing with JSON-like documents, as it allows for nested structures and arrays.
+
+- **Agile Development:** MongoDB supports agile development practices by allowing developers to quickly iterate and modify the data model.
+
+**Q2. State and Explain the features of MongoDB.**
+
+A2: Some key features of MongoDB include:
+
+- **Document-Oriented:** Data is stored in flexible, JSON-like documents that can have varied structures.
+
+- **Scalability:** Supports horizontal scaling through sharding, distributing data across multiple servers.
+
+- **Indexing:** Provides efficient indexing support for faster queries.
+
+- **Aggregation Framework:** Powerful aggregation pipeline for data transformation and analysis.
+
+- **Ad Hoc Queries:** Supports dynamic queries on documents using a rich set of operators.
+
+- **Schema-less:** No rigid schema; fields can be added on the fly.
+
+- **Replication:** Provides high availability through automatic and configurable data replication.
+
+- **GridFS:** Allows storing and retrieving large files, such as images and videos.
+
+**Q3. Write a code to connect MongoDB to Python. Also, create a database and a collection in MongoDB.**
+
+```python
+from pymongo import MongoClient
+
+# Connect to MongoDB
+client = MongoClient('mongodb://localhost:27017/')
+
+# Create or access a database
+mydatabase = client['mydatabase']
+
+# Create or access a collection
+mycollection = mydatabase['mycollection']
+```
+
+**Q4. Using the database and the collection created in question number 3, write a code to insert one record, and insert many records. Use the find() and find_one() methods to print the inserted record.**
+
+```python
+# Insert one record
+record_one = {"name": "John Doe", "age": 25}
+result_one = mycollection.insert_one(record_one)
+
+# Insert many records
+records_many = [
+    {"name": "Jane Smith", "age": 30},
+    {"name": "Bob Johnson", "age": 28}
+]
+result_many = mycollection.insert_many(records_many)
+
+# Find and print one record
+print("Inserted Record (One):", mycollection.find_one({"name": "John Doe"}))
+
+# Find and print all records
+print("Inserted Records (Many):")
+for record in mycollection.find():
+    print(record)
+```
+
+**Q5. Explain how you can use the find() method to query the MongoDB database. Write a simple code to demonstrate this.**
+
+The `find()` method is used to query documents in a collection. It can take a query filter as an argument to match specific documents.
+
+```python
+# Find documents matching a query
+query = {"age": {"$gte": 28}}  # Find documents where age is greater than or equal to 28
+results = mycollection.find(query)
+
+# Print the matching documents
+print("Matching Records:")
+for result in results:
+    print(result)
+```
+
+**Q6. Explain the sort() method. Give an example to demonstrate sorting in MongoDB.**
+
+The `sort()` method is used to sort the result of a query in MongoDB. It takes a field and an optional direction (ascending or descending).
+
+```python
+# Sort documents by age in ascending order
+sorted_results = mycollection.find().sort("age")
+
+# Print sorted documents
+print("Sorted Records (Ascending):")
+for result in sorted_results:
+    print(result)
+
+# Sort documents by age in descending order
+desc_sorted_results = mycollection.find().sort("age", -1)
+
+# Print descending sorted documents
+print("Sorted Records (Descending):")
+for result in desc_sorted_results:
+    print(result)
+```
+
+**Q7. Explain why delete_one(), delete_many(), and drop() are used.**
+
+- **delete_one():** Deletes a single document that matches the specified criteria. Example:
+  ```python
+  mycollection.delete_one({"name": "John Doe"})
+  ```
+
+- **delete_many():** Deletes all documents that match the specified criteria. Example:
+  ```python
+  mycollection.delete_many({"age": {"$lt": 30}})
+  ```
+
+- **drop():** Deletes the entire collection. Example:
+  ```python
+  mycollection.drop()
+  ```
+
+These methods are used for removing documents or collections based on certain conditions or for deleting the entire collection. `delete_one()` and `delete_many()` are useful for targeted document deletions, while `drop()` is more drastic, deleting the entire collection.

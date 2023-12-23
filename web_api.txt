@@ -1,0 +1,70 @@
+**Q1. What is an API? Give an example where an API is used in real life.**
+
+A1: An API, or Application Programming Interface, is a set of rules and tools that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information. 
+
+**Example:** Consider a weather application on your smartphone that displays weather information. This app might use a weather API to fetch real-time weather data from a server. The API allows the weather app to send a request (e.g., "Give me the current weather for New York") and receive a response from the server, which it can then display to the user.
+
+**Q2. Give advantages and disadvantages of using API.**
+
+**Advantages:**
+- **Interoperability:** Enables different software systems to work together.
+- **Modularity:** Allows developers to use pre-built functionalities without needing to understand their internal workings.
+- **Rapid Development:** Speeds up development by leveraging existing functionalities.
+- **Scalability:** APIs can handle a large number of requests, facilitating scalability.
+- **Security:** Provides controlled access to certain functionalities, enhancing security.
+
+**Disadvantages:**
+- **Dependency:** If the external API changes, it may affect the dependent systems.
+- **Limited Functionality:** Some APIs may not provide all the required functionalities.
+- **Data Security:** Transmitting data over APIs can pose security risks if not properly secured.
+- **Learning Curve:** Developers need to understand the API documentation and specifications.
+- **Reliability:** Relies on the availability and reliability of external services.
+
+**Q3. What is a Web API? Differentiate between API and Web API.**
+
+A3: A Web API, or Web Service, is an API accessible over the web using standard web protocols. It allows communication between different software systems over the internet. While the term "API" can refer to any set of rules that allow interaction between systems, a "Web API" specifically implies web-based communication.
+
+**Difference:**
+- **API (Application Programming Interface):** General term for a set of rules allowing different software systems to communicate.
+  
+- **Web API (Web Service):** Specifically refers to APIs accessible over the web using standard web protocols like HTTP.
+
+In summary, all Web APIs are APIs, but not all APIs are necessarily Web APIs.
+
+**Q4. Explain REST and SOAP Architecture. Mention shortcomings of SOAP.**
+
+- **REST (Representational State Transfer):**
+  - Architecture style for designing networked applications.
+  - Relies on a stateless, client-server communication model.
+  - Utilizes standard HTTP methods (GET, POST, PUT, DELETE).
+  - Data is typically exchanged in lightweight formats like JSON or XML.
+
+- **SOAP (Simple Object Access Protocol):**
+  - Protocol for exchanging structured information in web services.
+  - Typically uses XML for message format.
+  - Supports a wider range of communication protocols (HTTP, SMTP, etc.).
+  - More rigid and heavyweight compared to REST.
+
+**Shortcomings of SOAP:**
+- **Complexity:** SOAP messages are often more complex and verbose.
+- **Performance:** XML parsing can be resource-intensive.
+- **Stateful:** SOAP is inherently more stateful, which can be a disadvantage in some scenarios.
+- **Limited Browser Support:** SOAP is not as easily consumable by web browsers as REST.
+
+**Q5. Differentiate between REST and SOAP.**
+
+**REST:**
+- **Communication Style:** Stateless, client-server communication.
+- **Protocol:** Utilizes standard HTTP methods (GET, POST, PUT, DELETE).
+- **Data Format:** Typically uses lightweight formats like JSON or XML.
+- **State:** Stateless - each request from a client contains all the information needed to understand and fulfill it.
+- **Flexibility:** Supports various data formats, including XML and JSON.
+
+**SOAP:**
+- **Communication Style:** Typically stateful, although it can be designed statelessly.
+- **Protocol:** Can use multiple protocols (HTTP, SMTP, etc.).
+- **Data Format:** Primarily uses XML for message format.
+- **State:** Can be stateful or stateless.
+- **Flexibility:** More rigid, follows a strict specification.
+
+In summary, REST is often preferred for its simplicity, scalability, and ease of use over the web, while SOAP, being more feature-rich, is still used in scenarios where a formal contract is needed or when existing systems rely on it.

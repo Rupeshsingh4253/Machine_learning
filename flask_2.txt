@@ -1,0 +1,73 @@
+**Q1. Explain GET and POST methods.**
+
+- **GET Method:**
+  - Used for requesting data from a specified resource.
+  - Parameters are included in the URL.
+  - Requests are visible to everyone, and they can be bookmarked.
+  - Generally used for safe and idempotent operations.
+
+- **POST Method:**
+  - Used for submitting data to be processed to a specified resource.
+  - Parameters are included in the request body.
+  - Requests are not visible in the URL.
+  - Used for operations that can have side effects, like creating a new resource.
+
+**Q2. Why is `request` used in Flask?**
+
+In Flask, the `request` object is used to access incoming request data, such as form data, query parameters, and more. It allows the server-side code to interact with the data sent by the client in the request. The `request` object is an instance of the `Request` class, and it provides attributes and methods to access various aspects of the request, making it crucial for handling user input and making decisions based on it.
+
+**Q3. Why is `redirect()` used in Flask?**
+
+The `redirect()` function in Flask is used to redirect the client to a different URL. It's often used after processing a form submission or performing some operation, and you want to send the user to another page or route. For example, after a successful login, you might use `redirect(url_for('dashboard'))` to send the user to the dashboard page.
+
+**Q4. What are templates in Flask? Why is the `render_template()` function used?**
+
+Templates in Flask are used to separate the presentation layer from the business logic in web applications. They allow developers to write HTML pages with placeholders for dynamic content. The `render_template()` function in Flask is used to render these templates by replacing placeholders with actual data.
+
+For example:
+
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html', title='Home', content='Welcome to the home page')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+Here, `render_template('index.html', title='Home', content='Welcome to the home page')` renders the 'index.html' template and passes the specified data (title and content) to be used in the template.
+
+**Q5. Create a simple API. Use Postman to test it. Attach the screenshot of the output in the Jupyter Notebook.**
+
+To create a simple API in Flask, you can define routes that return JSON responses. Here's an example:
+
+```python
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/hello', methods=['GET'])
+def hello_api():
+    return jsonify({'message': 'Hello from the API!'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+After running the code, use Postman to send a GET request to `http://localhost:5000/api/hello`. Take a screenshot of the Postman output.
+
+Here's a sample code to run in a Jupyter Notebook cell:
+
+```python
+from IPython.display import Image
+
+# Replace 'your_screenshot_path' with the actual path to your screenshot file
+screenshot_path = 'your_screenshot_path.png'
+
+# Display the screenshot
+Image(filename=screenshot_path)
+```
