@@ -1,0 +1,100 @@
+**Que 1: Five Plots in Seaborn and Their Uses:**
+1. **Scatter Plot:**
+   - **Use:** Visualize the relationship between two continuous variables.
+   - **Function:** `sns.scatterplot()`
+
+2. **Bar Plot:**
+   - **Use:** Display the distribution of a categorical variable or compare categories.
+   - **Function:** `sns.barplot()`
+
+3. **Box Plot:**
+   - **Use:** Show the distribution and central tendency of a continuous variable across different categories.
+   - **Function:** `sns.boxplot()`
+
+4. **Violin Plot:**
+   - **Use:** Similar to box plots but also provides a kernel density estimation of the underlying distribution.
+   - **Function:** `sns.violinplot()`
+
+5. **Pair Plot:**
+   - **Use:** Visualize pairwise relationships in a dataset for multiple variables.
+   - **Function:** `sns.pairplot()`
+
+**Que 2: Line Plot for "fmri" Dataset:**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load fmri dataset
+fmri = sns.load_dataset('fmri')
+
+# Plot line plot using Seaborn
+sns.lineplot(x='timepoint', y='signal', hue='event', style='region', data=fmri)
+plt.title('Line Plot: fmri Dataset')
+plt.show()
+```
+
+**Que 3: Two Box Plots for "titanic" Dataset:**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load titanic dataset
+titanic = sns.load_dataset('titanic')
+
+# Plot two box plots using Seaborn
+plt.figure(figsize=(12, 6))
+plt.subplot(1, 2, 1)
+sns.boxplot(x='pclass', y='age', data=titanic)
+plt.title('Box Plot: Age by Pclass')
+
+plt.subplot(1, 2, 2)
+sns.boxplot(x='pclass', y='fare', data=titanic)
+plt.title('Box Plot: Fare by Pclass')
+
+plt.show()
+```
+
+**Que 4: Histogram with Hue for "diamonds" Dataset:**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load diamonds dataset
+diamonds = sns.load_dataset('diamonds')
+
+# Plot histogram with hue using Seaborn
+sns.histplot(data=diamonds, x='price', hue='cut', multiple='stack', kde=True)
+plt.title('Histogram: Price by Cut')
+plt.show()
+```
+
+**Que 5: Pair Plot with Hue for "iris" Dataset:**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+iris = sns.load_dataset('iris')
+
+# Plot pair plot with hue using Seaborn
+sns.pairplot(iris, hue='species')
+plt.title('Pair Plot: Iris Dataset')
+plt.show()
+```
+
+**Que 6: Heatmap for "flights" Dataset:**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load flights dataset
+flights = sns.load_dataset('flights')
+
+# Pivot the data for a heatmap
+flights_pivot = flights.pivot_table(index='month', columns='year', values='passengers')
+
+# Plot heatmap using Seaborn
+sns.heatmap(flights_pivot, cmap='viridis', annot=True, fmt='d')
+plt.title('Heatmap: Flights Dataset')
+plt.show()
+```
