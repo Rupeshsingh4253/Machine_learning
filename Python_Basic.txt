@@ -1,0 +1,83 @@
+**Q1: Create Variables with Different Data Types:**
+```python
+# (i) String
+string_var = "Hello, World!"
+
+# (ii) List
+list_var = [1, 2, 3, 'a', 'b', 'c']
+
+# (iii) Float
+float_var = 3.14
+
+# (iv) Tuple
+tuple_var = (10, 20, 30, 'x', 'y', 'z')
+```
+
+**Q2: Data Types of Given Variables:**
+```python
+# (i) var1 - String
+# (ii) var2 - String
+# (iii) var3 - List
+# (iv) var4 - Float
+```
+
+**Q3: Explanation of Operators:**
+```python
+# (i) / : Division
+result1 = 10 / 3  # Result: 3.333...
+# (ii) % : Modulus (remainder)
+result2 = 10 % 3  # Result: 1
+# (iii) // : Floor Division
+result3 = 10 // 3  # Result: 3
+# (iv) ** : Exponentiation
+result4 = 2 ** 3  # Result: 8
+```
+
+**Q4: List with Multiple Types and Print Using For Loop:**
+```python
+mixed_list = [1, 'hello', 3.14, True, [1, 2, 3], 'world', (4, 5), None, {'a': 10}, False]
+
+for item in mixed_list:
+    print(f"Element: {item}, Type: {type(item)}")
+```
+
+**Q5: Verify Pure Divisibility Using While Loop:**
+```python
+A = 30
+B = 5
+count = 0
+
+while A % B == 0:
+    A = A // B
+    count += 1
+
+print(f"{A} is divisible by {B} {count} times.")
+```
+
+**Q6: Check Divisibility Using For Loop and If-Else:**
+```python
+int_list = list(range(1, 26))
+
+for num in int_list:
+    if num % 3 == 0:
+        print(f"{num} is divisible by 3.")
+    else:
+        print(f"{num} is not divisible by 3.")
+```
+
+**Q7: Mutable and Immutable Data Types:**
+- **Mutable:** Objects whose value or state can be changed after creation.
+  - Examples: Lists, Dictionaries.
+  
+- **Immutable:** Objects whose value or state cannot be changed after creation.
+  - Examples: Strings, Tuples, Integers.
+
+```python
+# Mutable Example (List)
+mutable_list = [1, 2, 3]
+mutable_list[0] = 99  # Valid
+
+# Immutable Example (Tuple)
+immutable_tuple = (1, 2, 3)
+# immutable_tuple[0] = 99  # Invalid, will raise an error
+```
