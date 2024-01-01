@@ -1,55 +1,55 @@
-Q1: **Overfitting and Underfitting in Machine Learning:**
-- **Overfitting:** This occurs when a machine learning model learns the training data too well, capturing noise or random fluctuations that don't represent the true underlying patterns. As a result, the model performs poorly on new, unseen data.
-- **Underfitting:** This happens when a model is too simple and fails to capture the underlying patterns in the training data, leading to poor performance on both the training and test datasets.
+Q1: Overfitting and Underfitting in Machine Learning:
+- Overfitting: This occurs when a machine learning model learns the training data too well, capturing noise or random fluctuations that don't represent the true underlying patterns. As a result, the model performs poorly on new, unseen data.
+- Underfitting: This happens when a model is too simple and fails to capture the underlying patterns in the training data, leading to poor performance on both the training and test datasets.
 
-**Consequences:**
-- **Overfitting:** Poor generalization to new data, high variance, and model complexity.
-- **Underfitting:** Inability to capture patterns, high bias, and poor performance on both training and test data.
+Consequences:
+- Overfitting:poor generalization to new data, high variance, and model complexity.
+- Underfitting: Inability to capture patterns, high bias, and poor performance on both training and test data.
 
-**Mitigation:**
-- **Overfitting:** Regularization, cross-validation, reducing model complexity, increasing data size.
-- **Underfitting:** Increasing model complexity, adding relevant features, using more advanced models.
+Mitigation:
+- Overfitting: Regularization, cross-validation, reducing model complexity, increasing data size.
+- Underfitting: Increasing model complexity, adding relevant features, using more advanced models.
 
-Q2: **Reducing Overfitting:**
+Q2: Reducing Overfitting:
 - Use simpler models.
 - Gather more data.
 - Apply regularization techniques (e.g., L1 or L2 regularization).
 - Feature selection to remove irrelevant features.
 - Cross-validation to assess model performance.
 
-Q3: **Underfitting:**
+Q3: Underfitting:
 Underfitting occurs when a model is too simple to capture the underlying patterns in the data. Scenarios where underfitting can occur include:
 - Using a linear model for a non-linear problem.
 - Insufficient training data.
 - Improper feature selection.
 
-Q4: **Bias-Variance Tradeoff:**
-- **Bias:** Error from overly simplistic assumptions. High bias leads to underfitting.
-- **Variance:** Error from too much complexity. High variance leads to overfitting.
+Q4: Bias-Variance Tradeoff:
+- Bias: Error from overly simplistic assumptions. High bias leads to underfitting.
+- Variance: Error from too much complexity. High variance leads to overfitting.
 The tradeoff involves finding the right level of model complexity to minimize both bias and variance for optimal performance.
 
-Q5: **Detecting Overfitting and Underfitting:**
-- **Overfitting:** High training accuracy but low test accuracy, large difference between training and test performance.
-- **Underfitting:** Low training and test accuracy, no improvement with additional data or complexity.
+Q5: Detecting Overfitting and Underfitting:
+- Overfitting: High training accuracy but low test accuracy, large difference between training and test performance.
+- Underfitting: Low training and test accuracy, no improvement with additional data or complexity.
 
-**Methods:**
+Methods:
 - Cross-validation.
 - Learning curves.
 - Holdout validation set.
 - Regularly monitoring performance metrics.
 
-Q6: **Bias vs. Variance:**
-- **High Bias Model:** Simplistic, underfitting, performs poorly on training and test data.
-- **High Variance Model:** Complex, overfitting, performs well on training but poorly on test data.
+Q6: Bias vs Variance:
+- High Bias Model:simplistic, underfitting, performs poorly on training and test data.
+- High Variance Model:Complex, overfitting, performs well on training but poorly on test data.
 
-**Examples:**
-- **High Bias:** Linear regression on a non-linear problem.
-- **High Variance:** Decision tree with deep branches on a small dataset.
+Examples:
+- High Bias: Linear regression on a non-linear problem.
+- High Variance: Decision tree with deep branches on a small dataset.
 
-Q7: **Regularization in Machine Learning:**
-- **Definition:** A technique to prevent overfitting by adding a penalty term to the model's cost function.
-- **Common Techniques:**
-  - **L1 Regularization (Lasso):** Adds the absolute values of coefficients to the cost.
-  - **L2 Regularization (Ridge):** Adds the squared values of coefficients to the cost.
-  - **Elastic Net:** Combination of L1 and L2 regularization.
+Q7: Regularization in Machine Learning:
+Definition: technique to prevent overfitting by adding a penalty term to the model's cost function.
+Common Techniques:
+L1 Regularization (Lasso): Adds the absolute values of coefficients to the cost.
+L2 Regularization (Ridge): Adds the squared values of coefficients to the cost.
+Elastic Net: Combination of L1 and L2 regularization.
 - **How They Work:** Penalize large coefficients, preventing the model from becoming too complex.
