@@ -2,60 +2,12 @@ Q1. What is Min-Max scaling, and how is it used in data preprocessing? Provide a
 
 Min-Max scaling is a data preprocessing technique that transforms the values of a numeric feature to a specific range, typically between 0 and 1. It is done by subtracting the minimum value of the feature and dividing by the range (difference between maximum and minimum values).
 
-The formula for Min-Max scaling is:
-�
-scaled
-=
-�
-−
-�
-min
-�
-max
-−
-�
-min
-X 
-scaled
-​
- = 
-X 
-max
-​
- −X 
-min
-​
- 
-X−X 
-min
-​
- 
-​
- 
-
 Example:
 Suppose you have a feature representing the salary of individuals with values ranging from $40,000 to $100,000. After Min-Max scaling, these values could be transformed to a range between 0 and 1, making it easier for algorithms to converge and improving model performance.
 
 Q2. What is the Unit Vector technique in feature scaling, and how does it differ from Min-Max scaling? Provide an example to illustrate its application.
 
 Unit Vector scaling (also known as vector normalization) is a technique that scales the values of a feature to have a unit norm, transforming the feature vector into a unit vector. Each data point is scaled by dividing it by the Euclidean norm of the feature vector.
-
-The formula for Unit Vector scaling is:
-�
-scaled
-=
-�
-∥
-�
-∥
-X 
-scaled
-​
- = 
-∥X∥
-X
-​
- 
 
 Unlike Min-Max scaling, Unit Vector scaling does not set specific bounds for the feature values, but it ensures that the magnitude of the feature vector is 1.
 
@@ -72,9 +24,6 @@ Standardize the data (optional but recommended).
 Compute the covariance matrix.
 Compute the eigenvectors and eigenvalues of the covariance matrix.
 Sort the eigenvalues in descending order and choose the top 
-�
-k eigenvectors corresponding to the 
-�
 k largest eigenvalues.
 Form a new matrix using the selected eigenvectors as columns.
 Example:
